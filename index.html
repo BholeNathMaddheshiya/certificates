@@ -3,85 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Certificate</title>
-    <!-- Use a modern, readable font -->
+    <title>Bhole Nath Maddheshiya - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS from CDN for modern, utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background similar to GitHub */
-            color: #c9d1d9; /* Light text color for contrast */
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .section-title {
+            position: sticky;
+            top: 0;
+            background-color: #e5e7eb;
+            z-index: 10;
+        }
+        .item-list {
+            padding: 1rem;
+        }
+        .item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .certificate-item {
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .certificate-item:hover {
+            background-color: #f3f4f6;
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+        .collapsible-content.expanded {
+            max-height: 300px; /* Adjusted to fit the education content */
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
         }
     </style>
 </head>
-<body class="p-6 md:p-12">
+<body class="bg-gray-100 flex justify-center py-10">
+    <div class="container bg-white rounded-xl shadow-lg p-8 md:p-12">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Bhole Nath Maddheshiya</h1>
+            <p class="text-lg text-gray-600">My Portfolio & Certifications</p>
+        </header>
 
-    <!-- Header Section -->
-    <header class="text-center mb-12">
-  <h1 class="text-3xl md:text-5xl font-bold mb-2 text-white">Internship Completion Certificate</h1>
-        <p class="text-lg text-gray-400">Issued by  <b>NoviTech R&D Private Limited. </b> Completed on : August 2025</p>
-   
-    </header>
-
-    <!-- Certificate Card -->
-    <main class="flex justify-center">
-        <div class="bg-gray-800 rounded-2xl shadow-xl p-6 flex flex-col items-center text-center transition-transform duration-300 w-full max-w-6xl">
-           
-            <div class="flex items-center justify-center mb-2">
-               <button id="viewBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-all duration-200 shadow-lg">View as PDF</button>
+        <section class="mb-8 space-y-4">
+            <!-- WORK EXPERIENCE SECTION -->
+            <div class="rounded-lg shadow-md overflow-hidden">
+                <div class="section-title bg-gray-200 p-4 rounded-t-lg font-semibold text-lg text-gray-800">
+                    Work Experience
+                </div>
+                <div id="work-experience-section" class="item-list"></div>
             </div>
-         
-            <!-- Certificate Image Preview -->
-            <img src="DA/Data_Analytics_Internship_image.jpg" alt="Certificate Preview" class="mt-8 rounded-xl w-full max-w-full h-auto">
-        </div>
-    </main>
 
-    <!-- Modal for PDF View -->
-    <div id="pdfModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 hidden">
-        <div class="relative w-full max-w-6xl h-full md:h-[90%] bg-gray-900 rounded-xl shadow-2xl">
-            <!-- Close Button -->
-            <button id="closeBtn" class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <!-- Embedded PDF -->
-            <iframe id="pdfFrame" src="" class="w-full h-full rounded-xl" title="Certificate View"></iframe>
-        </div>
+            <!-- EDUCATION SECTION -->
+            <div class="rounded-lg shadow-md overflow-hidden">
+                <div class="section-title bg-gray-200 p-4 rounded-t-lg font-semibold text-lg text-gray-800">
+                    Education
+                </div>
+                <div id="education-section" class="p-4 space-y-2"></div>
+            </div>
+
+            <!-- CERTIFICATIONS SECTION -->
+            <div class="rounded-lg shadow-md overflow-hidden">
+                <div class="section-title bg-gray-200 p-4 rounded-t-lg font-semibold text-lg text-gray-800">
+                    Certifications
+                </div>
+                <div class="space-y-4 p-4">
+                    <div class="rounded-lg shadow-md overflow-hidden">
+                        <div class="section-title p-4 rounded-t-lg font-semibold text-gray-800">
+                            Internship Certificates
+                        </div>
+                        <div id="internship-certs" class="p-4 space-y-2"></div>
+                    </div>
+    
+                    <div class="rounded-lg shadow-md overflow-hidden">
+                        <div class="section-title p-4 rounded-t-lg font-semibold text-gray-800">
+                            Data Analytics & Business Intelligence
+                        </div>
+                        <div id="data-analytics-certs" class="p-4 space-y-2"></div>
+                    </div>
+    
+                    <div class="rounded-lg shadow-md overflow-hidden">
+                        <div class="section-title p-4 rounded-t-lg font-semibold text-gray-800">
+                            Machine Learning & AI
+                        </div>
+                        <div id="ml-ai-certs" class="p-4 space-y-2"></div>
+                    </div>
+    
+                    <div class="rounded-lg shadow-md overflow-hidden">
+                        <div class="section-title p-4 rounded-t-lg font-semibold text-gray-800">
+                            Cybersecurity
+                        </div>
+                        <div id="cybersecurity-certs" class="p-4 space-y-2"></div>
+                    </div>
+    
+                    <div class="rounded-lg shadow-md overflow-hidden">
+                        <div class="section-title p-4 rounded-t-lg font-semibold text-gray-800">
+                            Project Management & Other
+                        </div>
+                        <div id="other-certs" class="p-4 space-y-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-8">
+            <p>&copy; <span id="current-year"></span> Bhole Nath Maddheshiya. All rights reserved.</p>
+            <p>Built with Tailwind CSS and lots of coffee.</p>
+        </footer>
     </div>
 
-    <!-- Script to handle modal functionality -->
     <script>
-        const viewBtn = document.getElementById('viewBtn');
-        const pdfModal = document.getElementById('pdfModal');
-        const pdfFrame = document.getElementById('pdfFrame');
-        const closeBtn = document.getElementById('closeBtn');
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Set your PDF URL here
-        const pdfUrl = "DA/Data_Analytics_Internship.pdf";
-
-        viewBtn.addEventListener('click', () => {
-            pdfFrame.src = pdfUrl;
-            pdfModal.classList.remove('hidden');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            pdfModal.classList.add('hidden');
-            pdfFrame.src = ""; // Clear the iframe to stop video/audio if any
-        });
-
-        // Hide modal when clicking outside the content
-        pdfModal.addEventListener('click', (e) => {
-            if (e.target === pdfModal) {
-                pdfModal.classList.add('hidden');
-                pdfFrame.src = "";
+        const workExperience = [
+            {
+                title: 'Data Analytics Intern',
+                company: 'NoviTech R&D Private Limited, India',
+                date: 'July 14 – August 14, 2025',
+                bullets: [
+                    'Completed a one-month internship focused on core Data Analytics concepts and tools.',
+                    'Worked on structured datasets to derive business insights using Excel and Power BI.',
+                    'Applied descriptive statistics and exploratory data analysis (EDA) techniques.',
+                    'Built basic dashboards to communicate key performance indicators (KPIs).',
+                    'Learned best practices in data cleansing, validation, and data ethics.'
+                ]
+            },
+            {
+                title: 'Artificial Intelligence Intern',
+                company: 'NoviTech R&D Private Limited, India',
+                date: 'July 14 – August 14, 2025',
+                bullets: [
+                    'Completed a one-month internship in Artificial Intelligence fundamentals.',
+                    'Gained practical knowledge in supervised and unsupervised machine learning algorithms.',
+                    'Understood concepts related to neural networks and generative AI.',
+                    'Explored applications of AI in predictive modeling and anomaly detection.',
+                    'Studied ethical implications of AI, including responsible AI practices and compliance.'
+                ]
             }
+        ];
+
+        const education = [
+            {
+                name: 'Secondary Education (Equivalent to GCE \'O\' Level)',
+                issued_by: 'Government of Nepal, Ministry of Education – Office of the Controller of Examinations',
+                school: 'New Pinewood English Boarding School, Butwal-5, Nepal',
+                candidate: 'Bhole Nath Maddheshiya',
+                details: [
+                    'Roll No: 0484655M',
+                    'Year: 2070 BS (2014 AD)',
+                    'Result: First Division (67.88%)',
+                    'Grand Total: 543/800',
+                    'Date of Issue: 13th June 2014'
+                ],
+                url: 'https://bholenathmaddheshiya.github.io/certificates/EDU/SecondaryEducationCert.html'
+            },
+            {
+                name: 'Pre-University / Higher Secondary Education (Equivalent to GCE \'A\' Level)',
+                issued_by: 'Board of High School and Intermediate Education Uttar Pradesh',
+                school: 'N Inter College Nautanwa Maharajganj',
+                candidate: 'Bhole Nath Maddheshiya',
+                details: [
+                    'Group: B-Science',
+                    'Result: First Honours – Passed with Distinction in Mathematics, Physics, Chemistry',
+                    'Certificate Number: 76000257',
+                    'Date of Issue: 15th May 2016',
+                    'Place: Allahabad, Uttar Pradesh'
+                ],
+                url: 'https://bholenathmaddheshiya.github.io/certificates/EDU/HigherSecondaryEducation.html'
+            },
+            {
+                name: 'Bachelor of Arts',
+                issued_by: 'Siddharth University, Kapilvastu, Siddharth Nagar (U.P.)',
+                school: 'Mishra Bandhu Mahavidyalaya, Belauhi, Maharajganj',
+                candidate: 'Bhole Nath Maddheshiya',
+                details: [
+                    'Degree: Bachelor of Arts (B.A.)',
+                    'Subjects: Political Science, Sociology, History (Medieval & Modern)',
+                    'Result: Second Division',
+                    'Date of Conferment: 05 December 2021',
+                    'Roll No: 2143500130040 | Enrollment No: SUKA5180096'
+                ],
+                url: 'https://bholenathmaddheshiya.github.io/certificates/EDU/BachelorsDegree.html'
+            }
+        ];
+
+        const certificates = {
+            'internship-certs': [
+                { name: 'Data Analytics Internship', issuer: 'NoviTech R&D Pvt Ltd', earned: 'July-August 2025', credential: 'N/A', url: 'https://bholenathmaddheshiya.github.io/certificates/index.html' },
+                { name: 'Artificial Intelligence Internship', issuer: 'NoviTech R&D Pvt Ltd', earned: 'July-August 2025', credential: 'N/A', url: 'https://bholenathmaddheshiya.github.io/certificates/ai.html' }
+            ],
+            'data-analytics-certs': [
+                { name: 'Meta Data Analyst', issuer: 'Meta on Coursera', earned: 'September 2025', credential: '29TDVMTZ9WMM', url: 'https://www.coursera.org/account/accomplishments/specialization/29TDVMTZ9WMM' },
+                { name: 'Microsoft Business Analyst', issuer: 'Microsoft on Coursera', earned: 'September 2025', credential: 'PWMHPW4SM60K', url: 'https://www.coursera.org/account/accomplishments/specialization/PWMHPW4SM60K' },
+                { name: 'Google Advanced Data Analytics', issuer: 'Google on Coursera', earned: 'August 2025', credential: 'CL66259YYR0L', url: 'https://www.coursera.org/account/accomplishments/specialization/CL66259YYR0L' },
+                { name: 'Google Data Analytics', issuer: 'Google on Coursera', earned: 'August 2025', credential: 'GNVN3D06MATY', url: 'https://www.coursera.org/account/accomplishments/specialization/GNVN3D06MATY' },
+                { name: 'IBM Data Analyst', issuer: 'IBM on Coursera', earned: 'August 2025', credential: 'TCGL4MUZO0E0', url: 'https://www.coursera.org/account/accomplishments/specialization/TCGL4MUZO0E0' },
+                { name: 'Microsoft Data Visualization', issuer: 'Microsoft on Coursera', earned: 'September 2025', credential: 'M6QBLRQM550T', url: 'https://www.coursera.org/account/accomplishments/specialization/M6QBLRQM550T' },
+                { name: 'Tableau Business Intelligence Analyst', issuer: 'Tableau Learning Partner on Coursera', earned: 'August 2025', credential: '74GFXAEMJQG1', url: 'https://www.coursera.org/account/accomplishments/specialization/74GFXAEMJQG1' },
+                { name: 'Microsoft Power BI Data Analyst', issuer: 'Microsoft on Coursera', earned: 'August 2025', credential: 'IFFAJVEUIPQV', url: 'https://www.coursera.org/account/accomplishments/specialization/IFFAJVEUIPQV' }
+            ],
+            'ml-ai-certs': [
+                { name: 'IBM Machine Learning', issuer: 'IBM on Coursera', earned: 'September 2025', credential: '11KCO74CWI2G', url: 'https://www.coursera.org/account/accomplishments/specialization/11KCO74CWI2G' },
+                { name: 'Gen AI for Fraud Detection Analytics', issuer: 'Edureka on Coursera', earned: 'September 2025', credential: 'MEQY98T65B1I', url: 'https://www.coursera.org/account/accomplishments/verify/MEQY98T65B1I' },
+                { name: 'GenAI for Fraud Detection and Compliance', issuer: 'Coursera Instructor Network on Coursera', earned: 'September 2025', credential: 'P75M2TD733RG', url: 'https://www.coursera.org/account/accomplishments/verify/P75M2TD733RG' },
+                { name: 'IBM Generative AI Engineering', issuer: 'IBM on Coursera', earned: 'August 2025', credential: '7VDYEHXGY3M1', url: 'https://www.coursera.org/account/accomplishments/specialization/7VDYEHXGY3M1' }
+            ],
+            'cybersecurity-certs': [
+                { name: 'Google Cybersecurity', issuer: 'Google on Coursera', earned: 'August 2025', credential: 'AZ801BSC2G44', url: 'https://www.coursera.org/account/accomplishments/specialization/AZ801BSC2G44' }
+            ],
+            'other-certs': [
+                { name: 'Google Digital Marketing & E-commerce', issuer: 'Google on Coursera', earned: 'September 2025', credential: 'IIUXFWGRC2RQ', url: 'https://www.coursera.org/account/accomplishments/specialization/IIUXFWGRC2RQ' },
+                { name: 'Google Project Management', issuer: 'Google on Coursera', earned: 'August 2025', credential: '0SJQEGULD6Y0', url: 'https://www.coursera.org/account/accomplishments/specialization/0SJQEGULD6Y0' },
+                { name: 'Meta Full-Stack Developer', issuer: 'Meta on Coursera', earned: 'August 2025', credential: 'CXUDPA5H8I3A', url: 'https://www.coursera.org/account/accomplishments/specialization/CXUDPA5H8I3A' }
+            ]
+        };
+
+        function renderWorkExperience() {
+            const container = document.getElementById('work-experience-section');
+            if (container) {
+                workExperience.forEach(job => {
+                    const jobItem = document.createElement('div');
+                    jobItem.className = 'item';
+                    jobItem.innerHTML = `
+                        <h3 class="font-semibold text-gray-900 text-lg">${job.title}</h3>
+                        <p class="text-sm text-gray-600">${job.company} | ${job.date}</p>
+                        <ul class="list-disc list-inside mt-2 text-sm text-gray-700 space-y-1">
+                            ${job.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+                        </ul>
+                    `;
+                    container.appendChild(jobItem);
+                });
+            }
+        }
+
+        function renderEducation() {
+            const container = document.getElementById('education-section');
+            if (container) {
+                education.forEach(edu => {
+                    const eduItem = document.createElement('div');
+                    eduItem.className = 'certificate-item p-4 rounded-md bg-gray-50 border border-gray-200';
+                    eduItem.innerHTML = `
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-medium text-gray-900">${edu.name}</h3>
+                            <svg class="w-4 h-4 text-gray-600 transition-transform transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <div class="collapsible-content">
+                            <p class="text-sm text-gray-700"><strong>Issued by:</strong> ${edu.issued_by}</p>
+                            <p class="text-sm text-gray-700"><strong>School:</strong> ${edu.school}</p>
+                            <p class="text-sm text-gray-700"><strong>Candidate:</strong> ${edu.candidate}</p>
+                            <ul class="list-disc list-inside mt-2 text-sm text-gray-700 space-y-1">
+                                ${edu.details.map(detail => `<li>${detail}</li>`).join('')}
+                            </ul>
+                            <a href="${edu.url}" target="_blank" class="text-sm text-blue-600 hover:underline">View Certificate</a>
+                        </div>
+                    `;
+                    container.appendChild(eduItem);
+                });
+            }
+        }
+
+        function renderCertificates() {
+            for (const section in certificates) {
+                const container = document.getElementById(section);
+                if (container) {
+                    certificates[section].forEach(cert => {
+                        const certItem = document.createElement('div');
+                        certItem.className = 'certificate-item p-4 rounded-md bg-gray-50 border border-gray-200';
+                        certItem.innerHTML = `
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-medium text-gray-900">${cert.name}</h3>
+                                <svg class="w-4 h-4 text-gray-600 transition-transform transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-sm text-gray-700"><strong>Issued by:</strong> ${cert.issuer}</p>
+                                <p class="text-sm text-gray-700"><strong>Earned:</strong> ${cert.earned}</p>
+                                <p class="text-sm text-gray-700"><strong>Credential ID:</strong> ${cert.credential}</p>
+                                <a href="${cert.url}" target="_blank" class="text-sm text-blue-600 hover:underline">View Certificate</a>
+                            </div>
+                        `;
+                        container.appendChild(certItem);
+                    });
+                }
+            }
+        }
+
+        renderWorkExperience();
+        renderEducation();
+        renderCertificates();
+
+        document.querySelectorAll('.certificate-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const content = item.querySelector('.collapsible-content');
+                const arrow = item.querySelector('svg');
+                
+                content.classList.toggle('expanded');
+                
+                if (content.classList.contains('expanded')) {
+                    arrow.style.transform = 'rotate(90deg)';
+                } else {
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
         });
     </script>
-
 </body>
 </html>
