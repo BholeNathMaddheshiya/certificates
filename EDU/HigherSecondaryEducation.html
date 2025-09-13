@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Certificate</title>
+    <!-- Use a modern, readable font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS from CDN for modern, utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background similar to GitHub */
+            color: #c9d1d9; /* Light text color for contrast */
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <!-- Header Section -->
+    <header class="text-center mb-12">
+  <h1 class="text-3xl md:text-5xl font-bold mb-2 text-white">Pre-University / Higher Secondary Education (Equivalent to GCE 'A' Level)</h1>
+        <p class="text-lg text-gray-400">Issued by  <b>Board of High School and Intermediate Education Uttar Pradesh, India </b> Date of Issue : 15th May 2016</p>
+   
+    </header>
+
+    <!-- Certificate Card -->
+    <main class="flex justify-center">
+        <div class="bg-gray-800 rounded-2xl shadow-xl p-6 flex flex-col items-center text-center transition-transform duration-300 w-full max-w-6xl">
+           
+            <div class="flex items-center justify-center mb-2">
+               <button id="viewBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-all duration-200 shadow-lg">View as PDF</button>
+            </div>
+         
+            <!-- Certificate Image Preview -->
+            <img src="inter.png" alt="Certificate Preview" class="mt-8 rounded-xl w-full max-w-full h-auto">
+        </div>
+    </main>
+
+    <!-- Modal for PDF View -->
+    <div id="pdfModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 hidden">
+        <div class="relative w-full max-w-6xl h-full md:h-[90%] bg-gray-900 rounded-xl shadow-2xl">
+            <!-- Close Button -->
+            <button id="closeBtn" class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <!-- Embedded PDF -->
+            <iframe id="pdfFrame" src="" class="w-full h-full rounded-xl" title="Certificate View"></iframe>
+        </div>
+    </div>
+
+    <!-- Script to handle modal functionality -->
+    <script>
+        const viewBtn = document.getElementById('viewBtn');
+        const pdfModal = document.getElementById('pdfModal');
+        const pdfFrame = document.getElementById('pdfFrame');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // Set your PDF URL here
+        const pdfUrl = "inter.pdf";
+
+        viewBtn.addEventListener('click', () => {
+            pdfFrame.src = pdfUrl;
+            pdfModal.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            pdfModal.classList.add('hidden');
+            pdfFrame.src = ""; // Clear the iframe to stop video/audio if any
+        });
+
+        // Hide modal when clicking outside the content
+        pdfModal.addEventListener('click', (e) => {
+            if (e.target === pdfModal) {
+                pdfModal.classList.add('hidden');
+                pdfFrame.src = "";
+            }
+        });
+    </script>
+
+</body>
+</html>
